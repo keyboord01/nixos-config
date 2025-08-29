@@ -1,10 +1,12 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./sh.nix
+    ../home-modules/sh.nix
+    ../home-modules/helix.nix
+    ../home-modules/ghostty.nix
   ];
 
-  
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ahmed";
@@ -34,11 +36,32 @@
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    hello
-    wget
-    firefox
-    curl
-    
+    helix
+
+
+    # nodejs_20
+    # nodePackages.pnpm
+
+    # LSPs
+    rust-analyzer
+    clang-tools
+    nil
+    nodePackages.typescript-language-server
+    nodePackages.prettier
+    nodePackages."@tailwindcss/language-server"
+    vscode-langservers-extracted
+    pyright
+
+
+    # Optional: formatters
+    rustfmt
+    nixpkgs-fmt
+
+    # debugger
+    lldb
+
+
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -86,16 +109,15 @@
   #  /etc/profiles/per-user/ahmed/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "hx"; # Set Helix as the default editor
   };
-
   # programs.bash.enable = true;
   # programs.bash.shellAliases = {
   #   ll = "ls -l";
   #   ".." = "cd ..";
   # };
 
- 
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
