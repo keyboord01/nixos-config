@@ -3,7 +3,6 @@
   imports = [
     ../home-modules/sh.nix
     ../home-modules/helix.nix
-    ../home-modules/ghostty.nix
   ];
 
 

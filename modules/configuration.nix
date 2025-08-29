@@ -49,6 +49,7 @@
         ghostty
         jq
         git
+        lazygit
       ];
 
 
