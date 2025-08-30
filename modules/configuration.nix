@@ -79,24 +79,24 @@
       };
     };
     # Extra certificates from OrbStack.
-    #   security.pki.certificates = [
-    #     ''
-    #       -----BEGIN CERTIFICATE-----
-    # MIICDDCCAbOgAwIBAgIRAO2u1/wGIlfuWhP/rdMHwnIwCgYIKoZIzj0EAwIwZjEd
-    # MBsGA1UEChMUT3JiU3RhY2sgRGV2ZWxvcG1lbnQxHjAcBgNVBAsMFUNvbnRhaW5l
-    # cnMgJiBTZXJ2aWNlczElMCMGA1UEAxMcT3JiU3RhY2sgRGV2ZWxvcG1lbnQgUm9v
-    # dCBDQTAeFw0yNTA4MjYxNzI2MDBaFw0zNTA4MjYxNzI2MDBaMGYxHTAbBgNVBAoT
-    # FE9yYlN0YWNrIERldmVsb3BtZW50MR4wHAYDVQQLDBVDb250YWluZXJzICYgU2Vy
-    # dmljZXMxJTAjBgNVBAMTHE9yYlN0YWNrIERldmVsb3BtZW50IFJvb3QgQ0EwWTAT
-    # BgcqhkjOPQIBBggqhkjOPQMBBwNCAARjpRuyk8+4w0lOwdERo1QS5NHDLWAuhra3
-    # hL2m4hjRKSL104Qr24oImuH0C+BJsUmxxJCUnRCQvSaf+rJfAshVo0IwQDAOBgNV
-    # HQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUpKJA36l+GTNP
-    # PDUNqkBJPJ04ogIwCgYIKoZIzj0EAwIDRwAwRAIgd1CYHfZ2f3N8NvNXp9er+BFj
-    # 6Gc1jt/3hPvInAmExoYCIA72k2/zOwDx+p+ZxlazNZU6Ec4yMqeUhcxugdz3En+I
-    # -----END CERTIFICATE-----
+    security.pki.certificates = [
+      ''
+              -----BEGIN CERTIFICATE-----
+        MIICDDCCAbOgAwIBAgIRAO2u1/wGIlfuWhP/rdMHwnIwCgYIKoZIzj0EAwIwZjEd
+        MBsGA1UEChMUT3JiU3RhY2sgRGV2ZWxvcG1lbnQxHjAcBgNVBAsMFUNvbnRhaW5l
+        cnMgJiBTZXJ2aWNlczElMCMGA1UEAxMcT3JiU3RhY2sgRGV2ZWxvcG1lbnQgUm9v
+        dCBDQTAeFw0yNTA4MjYxNzI2MDBaFw0zNTA4MjYxNzI2MDBaMGYxHTAbBgNVBAoT
+        FE9yYlN0YWNrIERldmVsb3BtZW50MR4wHAYDVQQLDBVDb250YWluZXJzICYgU2Vy
+        dmljZXMxJTAjBgNVBAMTHE9yYlN0YWNrIERldmVsb3BtZW50IFJvb3QgQ0EwWTAT
+        BgcqhkjOPQIBBggqhkjOPQMBBwNCAARjpRuyk8+4w0lOwdERo1QS5NHDLWAuhra3
+        hL2m4hjRKSL104Qr24oImuH0C+BJsUmxxJCUnRCQvSaf+rJfAshVo0IwQDAOBgNV
+        HQ8BAf8EBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUpKJA36l+GTNP
+        PDUNqkBJPJ04ogIwCgYIKoZIzj0EAwIDRwAwRAIgd1CYHfZ2f3N8NvNXp9er+BFj
+        6Gc1jt/3hPvInAmExoYCIA72k2/zOwDx+p+ZxlazNZU6Ec4yMqeUhcxugdz3En+I
+        -----END CERTIFICATE-----
 
-    #     ''
-    # ];
+      ''
+    ];
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
