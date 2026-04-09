@@ -37,6 +37,14 @@ in
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
+    settings = {
+      add_newline = false;
+      line_break.disabled = true;
+      hostname.disabled = true;
+      container.disabled = true;
+    };
   };
+
+
 }
 
