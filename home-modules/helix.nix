@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  tsserverPath = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib";
   prettier = "${pkgs.nodePackages.prettier}/bin/prettier";
 in
 {
@@ -27,7 +26,7 @@ in
       language-server = {
         typescript-language-server = {
           command = "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server";
-          args = [ "--stdio" "--tsserver-path=${tsserverPath}" ];
+          args = [ "--stdio" ];
         };
 
         vscode-json-language-server = {
