@@ -30,7 +30,10 @@
       home = "/home/ahmed";
       homeMode = "700";
       useDefaultShell = true;
+      shell = pkgs.zsh;
     };
+
+    programs.zsh.enable = true;
 
     nix.settings = {
       experimental-features = [ "nix-command" "flakes" ];

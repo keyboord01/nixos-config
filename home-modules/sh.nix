@@ -12,6 +12,7 @@ let
   };
 in
 {
+
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
@@ -20,6 +21,22 @@ in
   programs.zsh = {
     enable = true;
     shellAliases = myAliases;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+    enableCompletion = true;
+    history = {
+      size = 10000;
+      save = 10000;
+      ignoreDups = true;
+      ignoreAllDups = true;
+      share = true;
+    };
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
   };
 }
 
