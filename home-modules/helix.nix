@@ -24,14 +24,24 @@ in
     };
 
     languages = {
-      language-servers = {
+      language-server = {
         typescript-language-server = {
           command = "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server";
           args = [ "--stdio" "--tsserver-path=${tsserverPath}" ];
         };
 
-        vscode-langservers-extracted = {
-          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-langservers-extracted";
+        vscode-json-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server";
+          args = [ "--stdio" ];
+        };
+
+        vscode-html-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-html-language-server";
+          args = [ "--stdio" ];
+        };
+
+        vscode-css-language-server = {
+          command = "${pkgs.vscode-langservers-extracted}/bin/vscode-css-language-server";
           args = [ "--stdio" ];
         };
 
@@ -44,13 +54,8 @@ in
           command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
         };
 
-        pyright = {
-          command = "${pkgs.pyright}/bin/pyright-langserver";
-          args = [ "--stdio" ];
-        };
-
-        clangd = {
-          command = "${pkgs.clang-tools}/bin/clangd";
+        gopls = {
+          command = "${pkgs.gopls}/bin/gopls";
         };
 
         nil = {
@@ -73,7 +78,7 @@ in
         {
           name = "javascript";
           scope = "source.js";
-          file-types = [ "js" ];
+          file-types = [ "js" "mjs" "cjs" ];
           language-servers = [ "typescript-language-server" ];
           auto-format = true;
           formatter = {
@@ -85,7 +90,7 @@ in
           name = "tsx";
           scope = "source.tsx";
           file-types = [ "tsx" ];
-          language-servers = [ "typescript-language-server" ];
+          language-servers = [ "typescript-language-server" "tailwindcss-language-server" ];
           auto-format = true;
           formatter = {
             command = prettier;
@@ -93,10 +98,21 @@ in
           };
         }
         {
+          name = "jsx";
+          scope = "source.jsx";
+          file-types = [ "jsx" ];
+          language-servers = [ "typescript-language-server" "tailwindcss-language-server" ];
+          auto-format = true;
+          formatter = {
+            command = prettier;
+            args = [ "--parser" "babel" ];
+          };
+        }
+        {
           name = "json";
           scope = "source.json";
           file-types = [ "json" ];
-          language-servers = [ "vscode-langservers-extracted" ];
+          language-servers = [ "vscode-json-language-server" ];
           auto-format = true;
           formatter = {
             command = prettier;
@@ -107,7 +123,7 @@ in
           name = "html";
           scope = "text.html.basic";
           file-types = [ "html" ];
-          language-servers = [ "vscode-langservers-extracted" ];
+          language-servers = [ "vscode-html-language-server" "tailwindcss-language-server" ];
           auto-format = true;
           formatter = {
             command = prettier;
@@ -118,18 +134,7 @@ in
           name = "css";
           scope = "source.css";
           file-types = [ "css" ];
-          language-servers = [ "vscode-langservers-extracted" ];
-          auto-format = true;
-          formatter = {
-            command = prettier;
-            args = [ "--parser" "css" ];
-          };
-        }
-        {
-          name = "tailwindcss";
-          scope = "source.css";
-          file-types = [ "css" ];
-          language-servers = [ "tailwindcss-language-server" ];
+          language-servers = [ "vscode-css-language-server" "tailwindcss-language-server" ];
           auto-format = true;
           formatter = {
             command = prettier;
@@ -141,31 +146,13 @@ in
           scope = "source.rust";
           file-types = [ "rs" ];
           language-servers = [ "rust-analyzer" ];
-          auto-format = false;
-        }
-        {
-          name = "python";
-          scope = "source.python";
-          file-types = [ "py" ];
-          language-servers = [ "pyright" ];
-          auto-format = true;
-          formatter = {
-            command = "${pkgs.black}/bin/black";
-            args = [ "-" ];
-          };
-        }
-        {
-          name = "c";
-          scope = "source.c";
-          file-types = [ "c" ];
-          language-servers = [ "clangd" ];
           auto-format = true;
         }
         {
-          name = "cpp";
-          scope = "source.cpp";
-          file-types = [ "cpp" "cxx" "cc" "c++" "hpp" "hxx" "hh" ];
-          language-servers = [ "clangd" ];
+          name = "go";
+          scope = "source.go";
+          file-types = [ "go" ];
+          language-servers = [ "gopls" ];
           auto-format = true;
         }
         {
