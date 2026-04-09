@@ -9,6 +9,7 @@ let
     gl = "git log --oneline -20";
     gd = "git diff";
     lg = "lazygit";
+    cd = "z";
   };
 in
 {
@@ -45,6 +46,24 @@ in
     };
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.thefuck = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }
 
