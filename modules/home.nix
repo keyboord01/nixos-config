@@ -44,6 +44,12 @@
     TERM = "xterm-256color"; # Ghostty compatibility
   };
 
+  home.sessionPath = [
+    "$HOME/.npm-global/bin"
+  ];
+
+
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
