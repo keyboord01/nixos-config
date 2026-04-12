@@ -21,7 +21,7 @@
 
     users.users.ahmed = {
       uid = 501;
-      extraGroups = [ "wheel" "orbstack" ];
+      extraGroups = [ "wheel" "orbstack" "docker" ];
 
       # simulate isNormalUser, but with an arbitrary UID
       isSystemUser = true;
@@ -34,6 +34,8 @@
     };
 
     programs.zsh.enable = true;
+
+    virtualisation.docker.enable = true;
 
     nix.settings = {
       experimental-features = [ "nix-command" "flakes" ];
